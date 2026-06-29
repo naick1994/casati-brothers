@@ -8,7 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 import lorenzoProfile from "@/assets/lorenzo-kota-trophy.jpg";
-import leonardoProfile from "@/assets/leonardo-kota-celebration.jpg";
+import leonardoProfile from "@/assets/mykonos-2026-champion.jpg";
 // Import basati sul CONTENUTO REALE dei file
 import sponsorHarlem from "@/assets/sponsor-ridesk.png";      // sponsor-ridesk.png contiene Harlem
 import sponsorMobiMatter from "@/assets/sponsor-harlem.png";  // sponsor-harlem.png contiene MobiMatter
@@ -25,6 +25,8 @@ const lorenzoAchievements = [
 ];
 
 const lorenzoOtherAchievements = [
+  "2nd Place Capital.com GKA Big Air World Cup Mykonos 2026",
+  "3rd in the World GKA Big Air 2026",
   "2nd Place Red Bull King of the Air 2024",
   "Winner of Mystic's Move of the Day at Red Bull King Of The Air 2023",
   "Winner of Red Bull King Of The Air Qualifier 2024 Cold Hawaii",
@@ -59,6 +61,8 @@ const lorenzoBio = {
 
 // Leonardo Casati Data
 const leonardoAchievements = [
+  { title: "GKA BIG AIR WORLD CHAMPION 2026", icon: "gold" as const },
+  { title: "Winner Capital.com GKA Big Air World Cup Mykonos 2026", icon: "gold" as const },
   { title: "2nd Place RED BULL KING OF THE AIR 2025", icon: "silver" as const },
   { title: "3rd Place GKA Lords of Trams 2025", icon: "bronze" as const },
   { title: "4x Junior World Champion", icon: "gold" as const },

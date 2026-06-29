@@ -3,6 +3,11 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Mykonos 2026 — GKA Big Air World Cup
+import mykonos2026Podium from "@/assets/mykonos-2026-podium.jpg";
+import mykonos2026Family from "@/assets/mykonos-2026-family.jpg";
+import mykonos2026Champion from "@/assets/mykonos-2026-champion.jpg";
+
 // Brothers together
 import brothersKotaInterview from "@/assets/brothers-kota-interview.jpg";
 import brothersHelmetsPortrait from "@/assets/brothers-helmets-portrait.jpg";
@@ -27,6 +32,9 @@ import leonardoBeach from "@/assets/leonardo-beach.jpg";
 
 // Gallery images - balanced mix of brothers, Lorenzo, and Leonardo
 const defaultImages = [
+  { src: mykonos2026Champion, alt: "Leonardo Casati - GKA Big Air World Champion 2026 Mykonos" },
+  { src: mykonos2026Podium, alt: "Casati Brothers - GKA Big Air World Cup Mykonos 2026 Podium" },
+  { src: mykonos2026Family, alt: "Casati Brothers & Renato - Mykonos 2026" },
   { src: brothersKotaInterview, alt: "Lorenzo e Leonardo - Red Bull KOTA Interview" },
   { src: lorenzoVictory, alt: "Lorenzo Casati - Victory Celebration" },
   { src: leonardoPortrait, alt: "Leonardo Casati - Portrait" },
