@@ -13,6 +13,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <div className="grain" aria-hidden="true" />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Index />} />

@@ -2,69 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CASATI BROTHERS - Epic Cinematic Design System */
-
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    /* Deep black cinematic palette */
-    --background: 0 0% 3%;
-    --foreground: 0 0% 95%;
+    /* Cream / ink palette — aligned with docu.casatibrothers.com */
+    --background: 45 14% 96%;       /* #f5f4f1 warm cream */
+    --foreground: 0 0% 5%;          /* #0c0c0c near-black */
 
-    --card: 0 0% 6%;
+    --card: 0 0% 5%;                /* dark film sections */
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 45 10% 92%;
+    --popover-foreground: 0 0% 5%;
 
-    /* Magenta accent #DF52A8 */
-    --primary: 330 68% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 5%;             /* ink black */
+    --primary-foreground: 45 14% 96%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 45 10% 92%;        /* #ecebe7 paper-2 */
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 45 8% 90%;
+    --muted-foreground: 40 4% 43%;  /* #6f6e6a */
 
-    --accent: 330 68% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 5%;
+    --accent-foreground: 45 14% 96%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 330 68% 60%;
+    --border: 0 0% 88%;
+    --input: 45 10% 92%;
+    --ring: 0 0% 5%;
 
-    --radius: 0.5rem;
-
-    /* Custom colors */
-    --magenta: 330 68% 60%;
-    --magenta-glow: 330 68% 70%;
-  }
-
-  .dark {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 330 68% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 330 68% 60%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 330 68% 60%;
+    --radius: 0.125rem;
   }
 }
 
@@ -79,26 +50,46 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6, .font-display {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    letter-spacing: 0.02em;
-    font-weight: 800;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 }
 
+/* Film grain overlay */
+.grain {
+  position: fixed;
+  inset: -160px;
+  z-index: 8;
+  pointer-events: none;
+  opacity: .045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.05s steps(5) infinite;
+  will-change: transform;
+}
+@keyframes grain {
+  0%   { transform: translate(0,0) }
+  20%  { transform: translate(-14px,9px) }
+  40%  { transform: translate(11px,-11px) }
+  60%  { transform: translate(-9px,-13px) }
+  80%  { transform: translate(13px,11px) }
+  100% { transform: translate(0,0) }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grain { animation: none; opacity: .03; }
+}
+
 @layer utilities {
-  .text-gradient-magenta {
-    @apply bg-gradient-to-r from-primary to-[hsl(var(--magenta-glow))] bg-clip-text text-transparent;
-  }
-
-  .glow-magenta {
-    box-shadow: 0 0 40px hsl(var(--magenta) / 0.3);
-  }
-
   .grayscale-img {
-    filter: grayscale(100%) contrast(1.1);
+    filter: grayscale(100%) contrast(1.05);
+  }
+  .glow-magenta {
+    box-shadow: none;
   }
 }

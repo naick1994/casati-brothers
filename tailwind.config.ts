@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Bricolage Grotesque", "sans-serif"],
-        sans: ["Montserrat", "sans-serif"],
+        display: ["Playfair Display", "Georgia", "serif"],
+        sans: ["Manrope", "-apple-system", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
