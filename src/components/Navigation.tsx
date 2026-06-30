@@ -28,10 +28,10 @@ const Navigation = () => {
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="block"
         >
-          <img 
-            src={casatiLogo} 
-            alt="Casati Brothers" 
-            className="h-20 md:h-28 w-auto"
+          <img
+            src={casatiLogo}
+            alt="Casati Brothers"
+            className="h-20 md:h-28 w-auto invert"
           />
         </a>
 

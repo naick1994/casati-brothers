@@ -63,7 +63,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-card">
+    <section id="contact" className="py-20 md:py-32 bg-card text-card-foreground">
       <div className="container mx-auto px-4 max-w-2xl">
         <motion.div
           ref={ref}
@@ -74,9 +74,9 @@ const ContactSection = () => {
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4">
             WANT TO JOIN<br />
-            <span className="text-primary">OUR FAMILY?</span>
+            <span className="text-card-foreground">OUR FAMILY?</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-card-foreground/60 text-lg">
             Get in touch for collaborations, sponsorships, or just to say hi.
           </p>
         </motion.div>
@@ -87,13 +87,13 @@ const ContactSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-12"
           >
-            <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
+            <CheckCircle className="w-16 h-16 text-card-foreground mx-auto mb-4" />
             <h3 className="font-display text-2xl mb-2">MESSAGE SENT!</h3>
-            <p className="text-muted-foreground">We'll get back to you soon.</p>
+            <p className="text-card-foreground/60">We'll get back to you soon.</p>
             <Button
               onClick={() => setIsSuccess(false)}
               variant="outline"
-              className="mt-6"
+              className="mt-6 border-card-foreground/30 text-card-foreground hover:bg-card-foreground/10 hover:text-card-foreground"
             >
               Send Another Message
             </Button>
@@ -111,7 +111,7 @@ const ContactSection = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Name</FormLabel>
+                      <FormLabel className="text-card-foreground">Name</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Your name"
@@ -129,7 +129,7 @@ const ContactSection = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Email</FormLabel>
+                      <FormLabel className="text-card-foreground">Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -148,7 +148,7 @@ const ContactSection = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Message</FormLabel>
+                      <FormLabel className="text-card-foreground">Message</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Tell us about your collaboration idea..."
@@ -166,7 +166,7 @@ const ContactSection = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium tracking-wider uppercase glow-magenta"
+                  className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-medium tracking-wider uppercase"
                 >
                   {isSubmitting ? (
                     <>

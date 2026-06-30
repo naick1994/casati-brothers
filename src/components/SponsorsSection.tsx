@@ -25,7 +25,7 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
   };
 
   return (
-    <section id="sponsors" className="py-20 md:py-32 bg-card">
+    <section id="sponsors" className="py-20 md:py-32 bg-card text-card-foreground">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -35,9 +35,9 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
           className="text-center mb-12"
         >
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4">
-            OUR <span className="text-primary">PARTNERS</span>
+            OUR <span className="text-card-foreground">PARTNERS</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-card-foreground/60 text-lg max-w-2xl mx-auto">
             Proud to work with the best brands in the industry
           </p>
         </motion.div>
@@ -82,7 +82,7 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
           <Button
             onClick={handleContactClick}
             size="lg"
-            className="font-display uppercase tracking-wider"
+            className="font-display uppercase tracking-wider bg-primary-foreground text-primary hover:bg-primary-foreground/90"
           >
             Become a Partner
           </Button>
@@ -101,7 +101,7 @@ const SponsorCard = ({ sponsor }: { sponsor: Sponsor }) => (
         className="max-w-full max-h-full object-contain transition-all duration-300"
       />
     ) : (
-      <span className="text-muted-foreground font-medium text-sm text-center">
+      <span className="text-card-foreground/70 font-medium text-sm text-center">
         {sponsor.name}
       </span>
     )}

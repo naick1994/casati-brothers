@@ -38,13 +38,13 @@ interface AthleteSectionProps {
 const getIconColor = (icon?: "gold" | "silver" | "bronze") => {
   switch (icon) {
     case "gold":
-      return "text-yellow-500";
+      return "text-yellow-400";
     case "silver":
-      return "text-gray-400";
+      return "text-gray-300";
     case "bronze":
-      return "text-amber-700";
+      return "text-amber-500";
     default:
-      return "text-primary";
+      return "text-card-foreground";
   }
 };
 
@@ -64,7 +64,7 @@ const AthleteSection = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section id={id} className="py-20 md:py-32 bg-card">
+    <section id={id} className="py-20 md:py-32 bg-card text-card-foreground">
       <div className="container mx-auto px-4">
         <div className={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${reversed ? "md:flex-row-reverse" : ""}`}>
           {/* Image */}
@@ -81,7 +81,7 @@ const AthleteSection = ({
                 alt={name}
                 className="w-full h-full object-cover grayscale-img"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
             </div>
           </motion.div>
 
@@ -95,7 +95,7 @@ const AthleteSection = ({
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2">
               {name}
             </h2>
-            <p className="text-primary text-lg md:text-xl uppercase tracking-wider mb-4">
+            <p className="text-card-foreground/70 text-lg md:text-xl uppercase tracking-wider mb-4">
               {subtitle}
             </p>
 
@@ -107,7 +107,7 @@ const AthleteSection = ({
                     href={socials.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-card-foreground/40 hover:text-card-foreground transition-colors"
                     aria-label="Instagram"
                   >
                     <Instagram size={24} />
@@ -118,7 +118,7 @@ const AthleteSection = ({
                     href={socials.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-card-foreground/40 hover:text-card-foreground transition-colors"
                     aria-label="YouTube"
                   >
                     <Youtube size={24} />
@@ -129,7 +129,7 @@ const AthleteSection = ({
                     href={socials.tiktok}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-card-foreground/40 hover:text-card-foreground transition-colors"
                     aria-label="TikTok"
                   >
                     <TikTokIcon size={24} />
@@ -140,7 +140,7 @@ const AthleteSection = ({
 
             {/* Bio Info */}
             {bio && (
-              <div className="mb-6 space-y-2 text-sm text-muted-foreground">
+              <div className="mb-6 space-y-2 text-sm text-card-foreground/60">
                 {bio.birthDate && bio.birthPlace && (
                   <p>Born: {bio.birthDate} — {bio.birthPlace}</p>
                 )}
@@ -148,7 +148,7 @@ const AthleteSection = ({
                   <p>Based in: {bio.basedIn}</p>
                 )}
                 {bio.quote && (
-                  <blockquote className="mt-4 pl-4 border-l-2 border-primary italic text-foreground text-base">
+                  <blockquote className="mt-4 pl-4 border-l-2 border-card-foreground/30 italic text-card-foreground text-base">
                     "{bio.quote}"
                   </blockquote>
                 )}
@@ -166,7 +166,7 @@ const AthleteSection = ({
                   className="flex items-start gap-3"
                 >
                   <Trophy className={`w-5 h-5 mt-1 flex-shrink-0 ${getIconColor(achievement.icon)}`} />
-                  <span className="text-foreground font-medium text-base md:text-lg">
+                  <span className="text-card-foreground font-medium text-base md:text-lg">
                     {achievement.title}
                   </span>
                 </motion.div>
@@ -176,15 +176,15 @@ const AthleteSection = ({
             {/* Other Achievements - Collapsible */}
             {otherAchievements.length > 0 && (
               <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-                <CollapsibleTrigger className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                <CollapsibleTrigger className="flex items-center gap-2 text-card-foreground/50 hover:text-card-foreground transition-colors">
                   <span className="uppercase tracking-wider text-sm">Other Results</span>
                   {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-4">
-                  <ul className="space-y-2 text-muted-foreground text-sm md:text-base">
+                  <ul className="space-y-2 text-card-foreground/60 text-sm md:text-base">
                     {otherAchievements.map((achievement, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 bg-card-foreground/50 rounded-full flex-shrink-0" />
                         {achievement}
                       </li>
                     ))}
