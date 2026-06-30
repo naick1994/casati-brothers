@@ -32,29 +32,26 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4">
-            OUR <span className="text-card-foreground">PARTNERS</span>
+          <p className="text-card-foreground/40 uppercase tracking-[0.3em] text-xs mb-4">Partners &amp; Sponsors</p>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+            OUR PARTNERS
           </h2>
-          <p className="text-card-foreground/60 text-lg max-w-2xl mx-auto">
-            Proud to work with the best brands in the industry
-          </p>
         </motion.div>
 
-        {/* Sponsor Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 mb-12">
+        {/* Divider */}
+        <div className="border-t border-card-foreground/10 mb-16" />
+
+        {/* Sponsor logos — white on dark, opacity on idle */}
+        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-16">
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group ${
-                index === sponsors.length - 1 && sponsors.length % 2 !== 0
-                  ? "col-span-2 sm:col-span-1 mx-auto max-w-[calc(50%-0.75rem)] sm:max-w-none"
-                  : ""
-              }`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group"
             >
               {sponsor.url ? (
                 <a
@@ -63,14 +60,17 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <SponsorCard sponsor={sponsor} />
+                  <SponsorLogo sponsor={sponsor} />
                 </a>
               ) : (
-                <SponsorCard sponsor={sponsor} />
+                <SponsorLogo sponsor={sponsor} />
               )}
             </motion.div>
           ))}
         </div>
+
+        {/* Divider */}
+        <div className="border-b border-card-foreground/10 mb-16" />
 
         {/* CTA */}
         <motion.div
@@ -82,7 +82,7 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
           <Button
             onClick={handleContactClick}
             size="lg"
-            className="font-display uppercase tracking-wider bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+            className="font-sans uppercase tracking-widest text-xs bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-10 py-6"
           >
             Become a Partner
           </Button>
@@ -92,16 +92,16 @@ const SponsorsSection = ({ sponsors }: SponsorsSectionProps) => {
   );
 };
 
-const SponsorCard = ({ sponsor }: { sponsor: Sponsor }) => (
-  <div className="aspect-[3/2] bg-secondary/50 rounded-lg p-6 flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105">
+const SponsorLogo = ({ sponsor }: { sponsor: Sponsor }) => (
+  <div className="opacity-50 hover:opacity-100 transition-opacity duration-300">
     {sponsor.logo ? (
       <img
         src={sponsor.logo}
         alt={sponsor.name}
-        className="max-w-full max-h-full object-contain transition-all duration-300"
+        className="h-10 w-auto object-contain brightness-0 invert"
       />
     ) : (
-      <span className="text-card-foreground/70 font-medium text-sm text-center">
+      <span className="text-card-foreground/60 font-medium text-sm uppercase tracking-wider">
         {sponsor.name}
       </span>
     )}
